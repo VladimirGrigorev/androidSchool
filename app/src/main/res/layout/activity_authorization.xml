@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AuthorizationActivity" android:background="#23213F">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
+            android:layout_marginBottom="100dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="100dp">
+
+        <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:id="@+id/login_text_field_boxes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:labelText="Логин"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="0dp" app:layout_constraintStart_toStartOf="parent">
+
+            <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/login_extended_edit_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+            />
+
+        </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+        <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:id="@+id/password_text_field_boxes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:labelText="Пароль"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent">
+
+            <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/password_extended_edit_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+            />
+
+        </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+    </LinearLayout>
+
+    <Button
+            android:text="Войти"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_button" android:background="#1EF0D7" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="16dp" android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" android:layout_marginRight="16dp" android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>
