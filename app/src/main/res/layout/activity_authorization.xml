@@ -26,7 +26,6 @@
                 android:layout_marginTop="0dp" app:layout_constraintStart_toStartOf="parent">
 
             <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                    app:prefix="+ "
                     android:id="@+id/login_extended_edit_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -18,7 +18,7 @@ class AuthorizationActivity : AppCompatActivity() {
             if (password_extended_edit_text.text.isEmpty())
                 password_text_field_boxes.setError("Поле не может быть пустым", false)
             if (login_extended_edit_text.text.isEmpty())
-                password_text_field_boxes.setError("Поле не может быть пустым", false)
+                login_text_field_boxes.setError("Поле не может быть пустым", false)
 
             progressBar.setVisibility(ProgressBar.VISIBLE)
             input_button.setText("")
