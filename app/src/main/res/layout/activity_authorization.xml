@@ -14,7 +14,7 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
-            android:layout_marginBottom="100dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="400dp" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="100dp">
 
         <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
@@ -26,6 +26,7 @@
                 android:layout_marginTop="0dp" app:layout_constraintStart_toStartOf="parent">
 
             <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    app:prefix="+ "
                     android:id="@+id/login_extended_edit_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -38,10 +39,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:labelText="Пароль"
+                app:endIcon="@drawable/not_see"
+                app:maxCharacters="10"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent">
 
             <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:inputType="textPassword"
                     android:id="@+id/password_extended_edit_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -55,9 +59,25 @@
             android:text="Войти"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/input_button" android:background="#1EF0D7" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/input_button" android:background="@drawable/button_file"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="16dp" android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp" android:layout_marginRight="16dp" android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+    />
+
+    <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:visibility="invisible"
+            android:translationZ="2dp"
+            android:theme="@style/CircularProgress"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="181dp"
+            android:layout_marginStart="181dp" android:layout_marginEnd="182dp" android:layout_marginRight="182dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="16dp" app:layout_constraintHorizontal_bias="0.0"
+    />
 
 </android.support.constraint.ConstraintLayout>
