@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ProgressBar
 import kotlinx.android.synthetic.main.activity_authorization.*
-
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 
@@ -22,6 +24,22 @@ class AuthorizationActivity : AppCompatActivity() {
 
             progressBar.setVisibility(ProgressBar.VISIBLE)
             input_button.setText("")
+
+            val body = RegistrationBody()
+            body.login = login_extended_edit_text.text.toString()
+            body.password = password_extended_edit_text.text.toString()
+
+            NetworkService.getInstance()
+                .jsonApi
+                .postData(body)
+                .enqueue(object : Callback<Post> {
+                    override fun onResponse(call: Call<Post>, response: Response<Post>) {
+                        val post = response.body()
+                    }
+
+                    override fun onFailure(call: Call<Post>, t: Throwable) {
+                    }
+                })
         }
     }
 }
