@@ -11,12 +11,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".MainScreenActivity">
+        </activity>
         <activity android:name=".AuthorizationActivity">
         </activity>
         <activity
                 android:name=".SplashScreenActivity"
-                android:label="android school"
-                >
+                android:label="android school">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -10,6 +10,9 @@ public class Post {
     @SerializedName("accessToken")
     @Expose
     private String accessToken;
+    @SerializedName("userInfo")
+    @Expose
+    private UserInfo userInfo;
 
     public int getId() {
         return id;
@@ -25,5 +28,13 @@ public class Post {
 
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 }
