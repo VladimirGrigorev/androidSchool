@@ -1,5 +1,6 @@
 package com.example.master
 
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ProgressBar
@@ -7,10 +8,16 @@ import kotlinx.android.synthetic.main.activity_authorization.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+import android.content.Intent
+import android.graphics.Color
+import android.os.Handler
+import android.support.design.widget.Snackbar
+import android.view.View
 
 
 class AuthorizationActivity : AppCompatActivity() {
+
+    var sharedPref: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,17 +36,50 @@ class AuthorizationActivity : AppCompatActivity() {
             body.login = login_extended_edit_text.text.toString()
             body.password = password_extended_edit_text.text.toString()
 
-            NetworkService.getInstance()
-                .jsonApi
-                .postData(body)
-                .enqueue(object : Callback<Post> {
-                    override fun onResponse(call: Call<Post>, response: Response<Post>) {
-                        val post = response.body()
-                    }
+            sharedPref = getSharedPreferences(SharedPreferencesParams.PREF_NAME, MODE_PRIVATE)
 
-                    override fun onFailure(call: Call<Post>, t: Throwable) {
-                    }
-                })
+            sendAuthorizationRequest(body, it)
         }
+    }
+
+    private fun sendAuthorizationRequest(body: RegistrationBody, view : View){
+        NetworkService.getInstance()
+            .jsonApi
+            .postData(body)
+            .enqueue(object : Callback<Post> {
+                override fun onResponse(call: Call<Post>, response: Response<Post>) {
+                    val post = response.body()
+
+                    if (post != null)
+                        saveUser(post)
+
+                    Handler().postDelayed({
+                        val intent = Intent(this@AuthorizationActivity,
+                            MainScreenActivity::class.java)
+                        startActivity(intent)
+                    }, 300)
+                }
+
+                override fun onFailure(call: Call<Post>, t: Throwable) {
+                    val snackbar = Snackbar.make(view,"Вы ввели неверные данные /n" +
+                            " Попробуйте еще раз",Snackbar.LENGTH_LONG)
+                    val snackbarView = snackbar.view
+                    snackbarView.setBackgroundColor(Color.parseColor("#FF575D"))
+                    snackbar.setActionTextColor(Color.WHITE)
+
+                    snackbar.show()
+                }
+            })
+    }
+
+    private fun saveUser(post: Post) {
+        val prefEditor = sharedPref!!.edit()
+        prefEditor.putString(SharedPreferencesParams.token, post.accessToken)
+        prefEditor.putInt(SharedPreferencesParams.id, post.userInfo.id)
+        prefEditor.putString(SharedPreferencesParams.username, post.userInfo.username)
+        prefEditor.putString(SharedPreferencesParams.firstName, post.userInfo.firstName)
+        prefEditor.putString(SharedPreferencesParams.lastName, post.userInfo.lastName)
+        prefEditor.putString(SharedPreferencesParams.userDescription, post.userInfo.userDescription)
+        prefEditor.apply()
     }
 }
