@@ -13,7 +13,7 @@
             android:theme="@style/AppTheme">
         <activity android:name=".MainScreenActivity">
         </activity>
-        <activity android:name=".AuthorizationActivity">
+        <activity android:name=".AuthorizationActivity" android:windowSoftInputMode="adjustResize">
         </activity>
         <activity
                 android:name=".SplashScreenActivity"
