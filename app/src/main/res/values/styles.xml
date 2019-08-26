@@ -8,8 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="CircularProgress" parent="Theme.AppCompat.Light">
+    <style name="CircularProgress">
         <item name="colorAccent">@color/colorBlack</item>
+    </style>
+
+    <style name="Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/colorToolbar</item>
     </style>
 
 </resources>
