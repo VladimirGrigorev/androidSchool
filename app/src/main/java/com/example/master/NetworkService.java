@@ -22,7 +22,10 @@ public class NetworkService {
         return mInstance;
     }
 
-    public API getJSONApi() {
-        return mRetrofit.create(API.class);
+    public APIAuth getJSONApiAuth() {
+        return mRetrofit.create(APIAuth.class);
+    }
+    public APIMemes getJSONApi() {
+        return mRetrofit.create(APIMemes.class);
     }
 }

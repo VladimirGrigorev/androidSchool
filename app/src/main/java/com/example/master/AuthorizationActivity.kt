@@ -44,10 +44,10 @@ class AuthorizationActivity : AppCompatActivity() {
 
     private fun sendAuthorizationRequest(body: RegistrationBody, view : View){
         NetworkService.getInstance()
-            .jsonApi
+            .jsonApiAuth
             .postData(body)
-            .enqueue(object : Callback<Post> {
-                override fun onResponse(call: Call<Post>, response: Response<Post>) {
+            .enqueue(object : Callback<PostAuth> {
+                override fun onResponse(call: Call<PostAuth>, response: Response<PostAuth>) {
                     val post = response.body()
 
                     if (post != null)
@@ -60,9 +60,9 @@ class AuthorizationActivity : AppCompatActivity() {
                     }, 300)
                 }
 
-                override fun onFailure(call: Call<Post>, t: Throwable) {
-                    val snackbar = Snackbar.make(view,"Вы ввели неверные данные /n" +
-                            " Попробуйте еще раз",Snackbar.LENGTH_LONG)
+                override fun onFailure(call: Call<PostAuth>, t: Throwable) {
+                    val snackbar = Snackbar.make(view,"Вы ввели неверные данные \n" +
+                            "Попробуйте еще раз",Snackbar.LENGTH_LONG)
                     val snackbarView = snackbar.view
                     snackbarView.setBackgroundColor(Color.parseColor("#FF575D"))
                     snackbar.setActionTextColor(Color.WHITE)
@@ -72,7 +72,7 @@ class AuthorizationActivity : AppCompatActivity() {
             })
     }
 
-    private fun saveUser(post: Post) {
+    private fun saveUser(post: PostAuth) {
         val prefEditor = sharedPref!!.edit()
         prefEditor.putString(SharedPreferencesParams.token, post.accessToken)
         prefEditor.putInt(SharedPreferencesParams.id, post.userInfo.id)
@@ -81,5 +81,11 @@ class AuthorizationActivity : AppCompatActivity() {
         prefEditor.putString(SharedPreferencesParams.lastName, post.userInfo.lastName)
         prefEditor.putString(SharedPreferencesParams.userDescription, post.userInfo.userDescription)
         prefEditor.apply()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        progressBar.setVisibility(ProgressBar.INVISIBLE)
+        input_button.setText("Войти")
     }
 }

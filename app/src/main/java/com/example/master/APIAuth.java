@@ -4,7 +4,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
-public interface API {
+public interface APIAuth {
     @POST("/auth/login")
-    Call<Post> postData(@Body RegistrationBody data);
+    Call<PostAuth> postData(@Body RegistrationBody data);
 }
