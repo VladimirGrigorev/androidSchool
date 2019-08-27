@@ -12,6 +12,10 @@
         <item name="colorAccent">@color/colorBlack</item>
     </style>
 
+    <style name="CircularProgressMain">
+        <item name="colorAccent">@color/button</item>
+    </style>
+
     <style name="Toolbar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?attr/actionBarSize</item>
