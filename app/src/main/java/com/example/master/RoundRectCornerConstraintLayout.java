@@ -8,7 +8,7 @@ import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 
 public class RoundRectCornerConstraintLayout extends ConstraintLayout {
-    private float radius = 18.0f;
+    private float radius = 9.0f;
     private Path path;
     private RectF rect;
     public RoundRectCornerConstraintLayout(Context context) {
