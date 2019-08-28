@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.master.RoundRectCornerConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="184dp"
-                                             android:layout_height="wrap_content" android:background="#312F51">
+                                             android:layout_width="186dp"
+                                             android:layout_height="wrap_content"
+                                             android:background="@drawable/selector_rounded"
+                                             android:layout_marginTop="0dp"
+                                             android:layout_marginBottom="8dp"
+                                             android:layout_marginRight="-8dp"
+                                             android:id="@+id/fl_item_container">
 
     <ImageView
             android:layout_width="0dp"
@@ -41,4 +46,5 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="54dp"
             android:layout_marginStart="54dp" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="14dp"/>
-</android.support.constraint.ConstraintLayout>
+
+</com.example.master.RoundRectCornerConstraintLayout>

@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:id="@+id/fl_tape"
-             tools:context="com.example.master.Fragments.TapeFragment"/>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:id="@+id/fl_tape"
+                                             tools:context="com.example.master.Fragments.AddPostFragment">
+    <android.support.v7.widget.RecyclerView
+            android:clipToPadding="false"
+            app:spanCount="2"
+            android:id="@+id/my_recycler_view"
+            android:scrollbars=""
+            app:layoutManager="android.support.v7.widget.StaggeredGridLayoutManager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+</android.support.constraint.ConstraintLayout>

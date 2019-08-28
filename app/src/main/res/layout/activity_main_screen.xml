@@ -20,22 +20,23 @@
             android:id="@+id/fl_content"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" android:layout_marginBottom="56dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp">
+    </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
             android:id="@+id/navigation"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_gravity="bottom"
-            android:background="#12102B"
+            android:background="@color/colorBNV"
             app:menu="@menu/navigation"
             app:labelVisibilityMode="unlabeled"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:itemIconTint="@color/button"/>
+            app:layout_constraintEnd_toEndOf="parent" app:itemIconTint="@drawable/selector_bnv"/>
     <ProgressBar
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"

@@ -6,6 +6,9 @@
     <color name="colorBlack">#000000</color>
     <color name="buttonPressed">#FFFFFF</color>
     <color name="button">#1EF0D7</color>
-    <color name="buttonCell">#312F51</color>
+    <color name="colorCell">#312F51</color>
     <color name="colorToolbar">#312F51</color>
+    <color name="colorBNVPress">#1EF0D7</color>
+    <color name="colorBNVNotPress">#FFFFFF</color>
+    <color name="colorBNV">#12102B</color>
 </resources>
