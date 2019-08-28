@@ -9,18 +9,18 @@ import android.support.design.widget.BottomNavigationView
 import com.example.master.Fragments.AddPostFragment
 import com.example.master.Fragments.UserFragment
 import android.support.v4.app.Fragment
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ProgressBar
-import com.example.master.Fragments.CellFragment
 import com.example.master.Fragments.ErrorFragment
+import com.example.master.Fragments.TapeFragment
+import com.example.master.MemesList.listMemes
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.ArrayList
 
 class MainScreenActivity : AppCompatActivity() {
-
-    private lateinit var listMemes : ArrayList<MemeInfo>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,29 +31,33 @@ class MainScreenActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
 
+        progressBarMainScreen.setVisibility(ProgressBar.VISIBLE)
+
         sendMemesRequest()
 
         Handler().postDelayed({
-            if (::listMemes.isInitialized) {
-                loadFragment(CellFragment.newInstance(), listMemes.get(0))
+            if (listMemes.isNotEmpty()) {
+                loadFragment(TapeFragment.newInstance())
+                progressBarMainScreen.setVisibility(ProgressBar.INVISIBLE)
             }
-        }, 300)
+        }, 500)
     }
 
     private fun sendMemesRequest(){
 
-        progressBarMainScreen.setVisibility(ProgressBar.VISIBLE)
         NetworkService.getInstance()
             .jsonApi
             .postDataMemes
             .enqueue(object : Callback<ArrayList<MemeInfo>> {
                 override fun onResponse(call: Call<ArrayList<MemeInfo>>, response: Response<ArrayList<MemeInfo>>) {
-                    val post = response.body()
-
-                    if(post != null)
-                        listMemes = post
-
-                    progressBarMainScreen.setVisibility(ProgressBar.INVISIBLE)
+                    if (response.isSuccessful()) {
+                        val post = response.body()
+                        if(post != null)
+                            listMemes = post
+                    }
+                    else{
+                        loadFragment(ErrorFragment.newInstance())
+                    }
                 }
 
                 override fun onFailure(call: Call<ArrayList<MemeInfo>>, t: Throwable) {
@@ -75,8 +79,8 @@ class MainScreenActivity : AppCompatActivity() {
                     getSupportActionBar()!!.setTitle("Популярные мемы")
                     sendMemesRequest()
 
-                    if (::listMemes.isInitialized) {
-                        loadFragment(CellFragment.newInstance(), listMemes.get(0))
+                    if (listMemes.isNotEmpty()) {
+                        loadFragment(TapeFragment.newInstance())
                     }
                     else {
                         loadFragment(ErrorFragment.newInstance())
@@ -98,21 +102,6 @@ class MainScreenActivity : AppCompatActivity() {
         }
 
     private fun loadFragment(fragment: Fragment) {
-        val ft = supportFragmentManager.beginTransaction()
-        ft.replace(R.id.fl_content, fragment)
-        ft.commit()
-    }
-
-    private fun loadFragment(fragment: Fragment, memeInfo: MemeInfo) {
-        val bundle = Bundle()
-        bundle.putString("id", memeInfo.id)
-        bundle.putString("title", memeInfo.title)
-        bundle.putString("description", memeInfo.description)
-        bundle.putBoolean("isFavorite", memeInfo.isFavorite)
-        bundle.putInt("createdDate", memeInfo.createdDate)
-        bundle.putString("photoUtl", memeInfo.photoUtl)
-        fragment.setArguments(bundle)
-
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fl_content, fragment)
         ft.commit()
