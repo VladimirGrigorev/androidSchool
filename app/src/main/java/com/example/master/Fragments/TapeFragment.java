@@ -23,7 +23,7 @@ public class TapeFragment extends Fragment {
     public TapeFragment() {
     }
 
-    public static TapeFragment newInstance() {
+    public static TapeFragment newInstance()  {
         return new TapeFragment();
     }
 

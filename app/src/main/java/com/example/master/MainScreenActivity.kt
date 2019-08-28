@@ -12,6 +12,7 @@ import com.example.master.Fragments.UserFragment
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.ImageButton
 import android.widget.ProgressBar
 import com.example.master.Fragments.ErrorFragment
 import com.example.master.Fragments.TapeFragment
@@ -20,7 +21,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
-
 
 class MainScreenActivity : AppCompatActivity() {
 
@@ -43,6 +43,15 @@ class MainScreenActivity : AppCompatActivity() {
                 progressBarMainScreen.setVisibility(ProgressBar.INVISIBLE)
             }
         }, 500)
+    }
+
+    fun onFavoriteButtonClick(view: View) {
+        when (view.id) {
+            R.id.imageButtonFavorite -> {
+                val buttonFavorite = findViewById<ImageButton>(R.id.imageButtonFavorite)
+                buttonFavorite.visibility = ProgressBar.INVISIBLE
+            }
+        }
     }
 
     private fun sendMemesRequest(){
