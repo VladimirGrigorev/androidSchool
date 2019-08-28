@@ -1,5 +1,6 @@
 package com.example.master
 
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -18,7 +19,8 @@ import com.example.master.MemesList.listMemes
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
+import java.util.*
+
 
 class MainScreenActivity : AppCompatActivity() {
 

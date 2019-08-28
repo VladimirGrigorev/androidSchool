@@ -16,6 +16,8 @@
             android:id="@+id/toolbar" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="24dp" app:layout_constraintTop_toTopOf="parent" app:title="Популярные мемы"/>
+
+
     <FrameLayout
             android:id="@+id/fl_content"
             android:layout_width="0dp"
