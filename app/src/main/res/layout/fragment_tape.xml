@@ -6,13 +6,18 @@
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              android:id="@+id/fl_tape"
                                              tools:context="com.example.master.Fragments.AddPostFragment">
-    <android.support.v7.widget.RecyclerView
-            android:clipToPadding="false"
-            app:spanCount="2"
-            android:id="@+id/my_recycler_view"
-            android:scrollbars=""
-            app:layoutManager="android.support.v7.widget.StaggeredGridLayoutManager"
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+                android:clipToPadding="false"
+                app:spanCount="2"
+                android:id="@+id/my_recycler_view"
+                android:scrollbars=""
+                app:layoutManager="android.support.v7.widget.StaggeredGridLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </android.support.constraint.ConstraintLayout>
