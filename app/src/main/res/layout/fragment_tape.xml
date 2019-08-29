@@ -5,11 +5,25 @@
                                              android:layout_height="match_parent"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              android:id="@+id/fl_tape"
-                                             tools:context="com.example.master.Fragments.AddPostFragment">
+                                             tools:context="com.example.master.Fragments.AddMemeFragment">
+
+    <android.support.v7.widget.Toolbar
+            style="@style/Toolbar"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize"
+            android:id="@+id/toolbar" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:title="Популярные мемы"/>
+
     <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" android:layout_marginTop="78dp">
         <android.support.v7.widget.RecyclerView
                 android:clipToPadding="false"
                 app:spanCount="2"

@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#1EF0D7</color>
     <color name="colorBlack">#000000</color>
     <color name="buttonPressed">#FFFFFF</color>
     <color name="button">#1EF0D7</color>
@@ -11,4 +11,5 @@
     <color name="colorBNVPress">#1EF0D7</color>
     <color name="colorBNVNotPress">#FFFFFF</color>
     <color name="colorBNV">#12102B</color>
+    <color name="colorBody">#23213F</color>
 </resources>

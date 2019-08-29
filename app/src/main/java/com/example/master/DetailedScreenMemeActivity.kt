@@ -6,11 +6,10 @@ import android.os.Bundle
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detailed_screen_meme.*
 import android.text.method.ScrollingMovementMethod
-import kotlinx.android.synthetic.main.activity_main_screen.*
 import java.util.*
 
 
-class DetailedScreenMeme : AppCompatActivity() {
+class DetailedScreenMemeActivity : AppCompatActivity() {
 
     private var isFavorite = false
 
@@ -51,7 +50,7 @@ class DetailedScreenMeme : AppCompatActivity() {
             }
         }
         imageButtonClose.setOnClickListener {
-            val intent = Intent(this@DetailedScreenMeme,
+            val intent = Intent(this@DetailedScreenMemeActivity,
                 MainScreenActivity::class.java)
             startActivity(intent)
         }

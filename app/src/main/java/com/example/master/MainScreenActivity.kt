@@ -6,7 +6,7 @@ import android.os.Handler
 import android.view.Menu
 import kotlinx.android.synthetic.main.activity_main_screen.*
 import android.support.design.widget.BottomNavigationView
-import com.example.master.Fragments.AddPostFragment
+import com.example.master.Fragments.AddMemeFragment
 import com.example.master.Fragments.UserFragment
 import android.support.v4.app.Fragment
 import android.view.View
@@ -31,18 +31,7 @@ class MainScreenActivity : AppCompatActivity() {
         val navigation = findViewById<BottomNavigationView>(R.id.navigation)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
-        setSupportActionBar(toolbar)
-
-        progressBarMainScreen.setVisibility(ProgressBar.VISIBLE)
-
         sendMemesRequest()
-
-        Handler().postDelayed({
-            if (listMemes.isNotEmpty()) {
-                loadFragment(TapeFragment.newInstance())
-                progressBarMainScreen.setVisibility(ProgressBar.INVISIBLE)
-            }
-        }, 500)
     }
 
     fun onFavoriteButtonClick(view: View) {
@@ -55,6 +44,7 @@ class MainScreenActivity : AppCompatActivity() {
     }
 
     private fun sendMemesRequest(){
+        progressBarMainScreen.setVisibility(ProgressBar.VISIBLE)
 
         NetworkService.getInstance()
             .jsonApi
@@ -63,8 +53,15 @@ class MainScreenActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<ArrayList<MemeInfo>>, response: Response<ArrayList<MemeInfo>>) {
                     if (response.isSuccessful()) {
                         val post = response.body()
-                        if(post != null)
+                        if(post != null) {
                             listMemes = post
+                            Handler().postDelayed({
+                                if (listMemes.isNotEmpty()) {
+                                    loadFragment(TapeFragment.newInstance())
+                                    progressBarMainScreen.setVisibility(ProgressBar.INVISIBLE)
+                                }
+                            }, 300)
+                        }
                     }
                     else{
                         loadFragment(ErrorFragment.newInstance())
@@ -87,24 +84,14 @@ class MainScreenActivity : AppCompatActivity() {
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_tape -> {
-                    getSupportActionBar()!!.setTitle("Популярные мемы")
                     sendMemesRequest()
-
-                    if (listMemes.isNotEmpty()) {
-                        loadFragment(TapeFragment.newInstance())
-                    }
-                    else {
-                        loadFragment(ErrorFragment.newInstance())
-                    }
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_add_post -> {
-                    getSupportActionBar()!!.setTitle("Add post")
-                    loadFragment(AddPostFragment.newInstance())
+                    loadFragment(AddMemeFragment.newInstance())
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_user -> {
-                    getSupportActionBar()!!.setTitle("MyUser")
                     loadFragment(UserFragment.newInstance())
                     return@OnNavigationItemSelectedListener true
                 }

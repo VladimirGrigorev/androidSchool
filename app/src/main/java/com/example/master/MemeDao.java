@@ -7,19 +7,19 @@ import java.util.List;
 @Dao
 public interface MemeDao {
 
-    @Query("SELECT * FROM memeentity")
-    List<MemeEntity> getAll();
+    @Query("SELECT * FROM meme")
+    List<Meme> getAll();
 
-    @Query("SELECT * FROM memeentity WHERE id = :id")
-    MemeEntity getById(long id);
+    @Query("SELECT * FROM meme WHERE id = :id")
+    Meme getById(long id);
 
     @Insert
-    void insert(MemeEntity employee);
+    void insert(Meme employee);
 
     @Update
-    void update(MemeEntity employee);
+    void update(Meme employee);
 
     @Delete
-    void delete(MemeEntity employee);
+    void delete(Meme employee);
 
 }
