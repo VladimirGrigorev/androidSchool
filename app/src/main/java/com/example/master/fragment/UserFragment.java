@@ -7,10 +7,7 @@ import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.*;
@@ -24,12 +21,8 @@ import com.example.master.request.NetworkService;
 import com.example.master.structure.MemeInfo;
 import com.example.master.structure.SharedPreferencesParams;
 import de.hdodenhof.circleimageview.CircleImageView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class UserFragment extends Fragment {
