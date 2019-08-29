@@ -12,6 +12,10 @@ import android.graphics.Color
 import android.os.Handler
 import android.support.design.widget.Snackbar
 import android.view.View
+import com.example.master.request.NetworkService
+import com.example.master.request.PostAuth
+import com.example.master.structure.RegistrationBody
+import com.example.master.structure.SharedPreferencesParams
 
 
 class AuthorizationActivity : AppCompatActivity() {
@@ -54,12 +58,11 @@ class AuthorizationActivity : AppCompatActivity() {
                         val intent = Intent(this@AuthorizationActivity,
                             MainScreenActivity::class.java)
                         startActivity(intent)
-                    }, 300)
+                    }, StaticVariable.delayTime)
                 }
 
                 override fun onFailure(call: Call<PostAuth>, t: Throwable) {
-                    val snackbar = Snackbar.make(view,"Вы ввели неверные данные \n" +
-                            "Попробуйте еще раз",Snackbar.LENGTH_LONG)
+                    val snackbar = Snackbar.make(view,R.string.errorIncorrectData,Snackbar.LENGTH_LONG)
                     val snackbarView = snackbar.view
                     snackbarView.setBackgroundColor(Color.parseColor("#FF575D"))
                     snackbar.setActionTextColor(Color.WHITE)
@@ -83,6 +86,6 @@ class AuthorizationActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         progressBar.setVisibility(ProgressBar.INVISIBLE)
-        input_button.setText("Войти")
+        input_button.setText(R.string.stringEnter)
     }
 }

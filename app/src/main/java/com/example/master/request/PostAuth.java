@@ -1,5 +1,6 @@
-package com.example.master;
+package com.example.master.request;
 
+import com.example.master.structure.UserInfo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

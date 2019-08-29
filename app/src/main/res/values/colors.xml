@@ -5,6 +5,7 @@
     <color name="colorAccent">#1EF0D7</color>
     <color name="colorBlack">#000000</color>
     <color name="buttonPressed">#FFFFFF</color>
+    <color name="colorWhite">#FFFFFF</color>
     <color name="button">#1EF0D7</color>
     <color name="colorCell">#312F51</color>
     <color name="colorToolbar">#312F51</color>

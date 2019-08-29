@@ -1,4 +1,4 @@
-package com.example.master;
+package com.example.master.structure;
 
 public class SharedPreferencesParams {
 

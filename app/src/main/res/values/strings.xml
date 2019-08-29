@@ -5,4 +5,7 @@
     <string name="create">Создать</string>
     <string name="title">Заголовок</string>
     <string name="text">Текст</string>
+    <string name="errorIncorrectData">Вы ввели неверные данные \n Попробуйте еще раз</string>
+    <string name="stringEnter">Войти</string>
+    <string name="createMeme">Создать свой мем</string>
 </resources>

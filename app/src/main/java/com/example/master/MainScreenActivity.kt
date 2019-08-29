@@ -3,19 +3,19 @@ package com.example.master
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.Menu
 import kotlinx.android.synthetic.main.activity_main_screen.*
 import android.support.design.widget.BottomNavigationView
-import com.example.master.Fragments.AddMemeFragment
-import com.example.master.Fragments.UserFragment
+import com.example.master.fragment.AddMemeFragment
+import com.example.master.fragment.UserFragment
 import android.support.v4.app.Fragment
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ProgressBar
-import android.widget.Toolbar
-import com.example.master.Fragments.ErrorFragment
-import com.example.master.Fragments.TapeFragment
+import com.example.master.fragment.ErrorFragment
+import com.example.master.fragment.TapeFragment
+import com.example.master.request.NetworkService
 import com.example.master.StaticVariable.listMemes
+import com.example.master.structure.MemeInfo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -59,7 +59,7 @@ class MainScreenActivity : AppCompatActivity() {
                                     loadFragment(TapeFragment.newInstance())
                                     progressBarMainScreen.setVisibility(ProgressBar.INVISIBLE)
                                 }
-                            }, 300)
+                            }, StaticVariable.delayTime)
                         }
                     }
                     else{
@@ -71,12 +71,6 @@ class MainScreenActivity : AppCompatActivity() {
                     loadFragment(ErrorFragment.newInstance())
                 }
             })
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.user_screen_menu, menu)
-        return true
     }
 
     private val mOnNavigationItemSelectedListener =

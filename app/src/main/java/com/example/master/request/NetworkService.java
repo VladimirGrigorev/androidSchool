@@ -1,4 +1,4 @@
-package com.example.master;
+package com.example.master.request;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -22,10 +22,10 @@ public class NetworkService {
         return mInstance;
     }
 
-    public APIAuth getJSONApiAuth() {
-        return mRetrofit.create(APIAuth.class);
+    public ApiAuth getJSONApiAuth() {
+        return mRetrofit.create(ApiAuth.class);
     }
-    public APIMemes getJSONApi() {
-        return mRetrofit.create(APIMemes.class);
+    public ApiMemes getJSONApi() {
+        return mRetrofit.create(ApiMemes.class);
     }
 }
