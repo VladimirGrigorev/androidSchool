@@ -1,6 +1,5 @@
 package com.example.master
 
-import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -10,7 +9,6 @@ import android.support.design.widget.BottomNavigationView
 import com.example.master.Fragments.AddPostFragment
 import com.example.master.Fragments.UserFragment
 import android.support.v4.app.Fragment
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ProgressBar
@@ -21,6 +19,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
+
+
 
 class MainScreenActivity : AppCompatActivity() {
 
@@ -104,7 +104,7 @@ class MainScreenActivity : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_user -> {
-                    getSupportActionBar()!!.setTitle("User")
+                    getSupportActionBar()!!.setTitle("MyUser")
                     loadFragment(UserFragment.newInstance())
                     return@OnNavigationItemSelectedListener true
                 }
