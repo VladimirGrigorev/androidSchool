@@ -5,7 +5,7 @@
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
                                              android:id="@+id/fl_add_post"
-                                             tools:context="com.example.master.Fragments.AddPostFragment"
+                                             tools:context="com.example.master.Fragments.AddMemeFragment"
                                              android:background="@color/colorCell">
     <ImageView
             android:src="@drawable/surf_edu"
@@ -58,7 +58,7 @@
             android:layout_marginTop="52dp"/>
     <android.support.v7.widget.Toolbar
             style="@style/Toolbar"
-            android:gravity="center|right"
+            android:gravity="center"
             android:layout_width="409dp"
             android:layout_height="54dp"
             android:theme="?attr/actionBarTheme"

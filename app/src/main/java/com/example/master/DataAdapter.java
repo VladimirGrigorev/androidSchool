@@ -3,7 +3,6 @@ package com.example.master;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,7 +85,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
                 RecyclerView rc = rootView.findViewById(R.id.my_recycler_view);
                 int positionMeme = rc.getChildAdapterPosition(view);
 
-                Intent intent = new Intent(context, DetailedScreenMeme.class);
+                Intent intent = new Intent(context, DetailedScreenMemeActivity.class);
                 intent.putExtra("id", memes.get(positionMeme).getId());
                 intent.putExtra("title", memes.get(positionMeme).getTitle());
                 intent.putExtra("description", memes.get(positionMeme).getDescription());

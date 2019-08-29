@@ -1,5 +1,6 @@
 package com.example.master.Fragments;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -40,31 +41,11 @@ public class TapeFragment extends Fragment {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                requestMemesForUpdate();
-                recyclerView.invalidate();
+                startActivity(new Intent(getActivity(), MainScreenActivity.class));
                 mSwipeRefreshLayout.setRefreshing(false);
             }
         });
 
         return view;
-    }
-
-    private void requestMemesForUpdate(){
-        NetworkService.getInstance()
-                .getJSONApi()
-                .getPostDataMemes()
-                .enqueue(new Callback<ArrayList<MemeInfo>>() {
-                    @Override
-                    public void onResponse(@NonNull Call<ArrayList<MemeInfo>> call, @NonNull Response<ArrayList<MemeInfo>> response) {
-                        if (response.isSuccessful()) {
-                            MemesList.listMemes = response.body();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(@NonNull Call<ArrayList<MemeInfo>> call, @NonNull Throwable t) {
-                        t.printStackTrace();
-                    }
-                });
     }
 }

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "0a5933072a76bb35a245edbbc37f9a01",
+    "identityHash": "635b63e63539aaafbd110b25c1050258",
     "entities": [
       {
-        "tableName": "Employee",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT, `salary` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "tableName": "Meme",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `description` TEXT, `isFavorite` INTEGER NOT NULL, `createdDate` INTEGER NOT NULL, `photoUtl` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -15,23 +15,41 @@
             "notNull": true
           },
           {
-            "fieldPath": "name",
-            "columnName": "name",
+            "fieldPath": "title",
+            "columnName": "title",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "salary",
-            "columnName": "salary",
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isFavorite",
+            "columnName": "isFavorite",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "createdDate",
+            "columnName": "createdDate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photoUtl",
+            "columnName": "photoUtl",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
           "columnNames": [
             "id"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
         "indices": [],
         "foreignKeys": []
@@ -39,7 +57,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"0a5933072a76bb35a245edbbc37f9a01\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"635b63e63539aaafbd110b25c1050258\")"
     ]
   }
 }

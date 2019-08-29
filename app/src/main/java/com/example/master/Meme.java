@@ -4,9 +4,9 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity
-public class MemeEntity {
+public class Meme {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public long id;
 
     public String title;
