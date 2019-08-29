@@ -25,21 +25,24 @@ class AuthorizationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_authorization)
 
         input_button.setOnClickListener {
-            if (password_extended_edit_text.text.isEmpty())
-                password_text_field_boxes.setError("Поле не может быть пустым", false)
             if (login_extended_edit_text.text.isEmpty())
                 login_text_field_boxes.setError("Поле не может быть пустым", false)
+            else {
+                if (password_extended_edit_text.text.isEmpty())
+                    password_text_field_boxes.setError("Поле не может быть пустым", false)
+                else {
+                    progressBar.setVisibility(ProgressBar.VISIBLE)
+                    input_button.setText("")
 
-            progressBar.setVisibility(ProgressBar.VISIBLE)
-            input_button.setText("")
+                    val body = RegistrationBody()
+                    body.login = login_extended_edit_text.text.toString()
+                    body.password = password_extended_edit_text.text.toString()
 
-            val body = RegistrationBody()
-            body.login = login_extended_edit_text.text.toString()
-            body.password = password_extended_edit_text.text.toString()
+                    StaticVariable.sharedPref = getSharedPreferences(SharedPreferencesParams.PREF_NAME, MODE_PRIVATE)
 
-            StaticVariable.sharedPref = getSharedPreferences(SharedPreferencesParams.PREF_NAME, MODE_PRIVATE)
-
-            sendAuthorizationRequest(body, it)
+                    sendAuthorizationRequest(body, it)
+                }
+            }
         }
     }
 
