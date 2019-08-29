@@ -1,17 +1,23 @@
-package com.example.master.Fragments;
+package com.example.master.fragment;
 
-import android.app.Activity;
+import android.arch.persistence.room.Room;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.*;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toolbar;
 import com.bumptech.glide.Glide;
-import com.example.master.MainScreenActivity;
-import com.example.master.R;
-import com.example.master.SharedPreferencesParams;
-import com.example.master.StaticVariable;
+import com.example.master.*;
+import com.example.master.database.AppDatabase;
+import com.example.master.database.Meme;
+import com.example.master.database.MemeDao;
+import com.example.master.structure.MemeInfo;
+import com.example.master.structure.SharedPreferencesParams;
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserFragment extends Fragment {
 
@@ -43,6 +49,34 @@ public class UserFragment extends Fragment {
                 .into(image);
         name.setText(StaticVariable.sharedPref.getString(SharedPreferencesParams.username, ""));
         text.setText(StaticVariable.sharedPref.getString(SharedPreferencesParams.userDescription, ""));
+
+        AppDatabase db =  Room.databaseBuilder(view.getContext(),
+                AppDatabase.class, "database")
+                .allowMainThreadQueries()
+                .build();
+        MemeDao memeDao = db.memeDao();
+
+        ProgressBar progressBarProfile = view.findViewById(R.id.progressBarProfile);
+        progressBarProfile.setVisibility(ProgressBar.VISIBLE);
+        List<Meme> memes = memeDao.getAll();
+        ArrayList<MemeInfo> memeInfoArrayList = new ArrayList<>();
+
+        for (int i=0; i<memes.size(); i++) {
+            MemeInfo newMeme = new MemeInfo();
+            newMeme.setId(String.valueOf(memes.get(i).id));
+            newMeme.setCreatedDate(memes.get(i).createdDate);
+            newMeme.setDescription(memes.get(i).description);
+            newMeme.setIsFavorite(memes.get(i).isFavorite);
+            newMeme.setPhotoUtl(memes.get(i).photoUtl);
+            newMeme.setTitle(memes.get(i).title);
+            memeInfoArrayList.add(newMeme);
+        }
+
+        final RecyclerView recyclerView = view.findViewById(R.id.my_recycler_view);
+        DataAdapter adapter = new DataAdapter(view.getContext(), memeInfoArrayList);
+        recyclerView.setAdapter(adapter);
+
+        progressBarProfile.setVisibility(ProgressBar.INVISIBLE);
 
         return view;
     }

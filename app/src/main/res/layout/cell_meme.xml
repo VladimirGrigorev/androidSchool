@@ -1,51 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.master.RoundRectCornerConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="186dp"
-                                             android:layout_height="wrap_content"
-                                             android:background="@drawable/selector_rounded"
-                                             android:layout_marginTop="0dp"
-                                             android:layout_marginBottom="8dp"
-                                             android:layout_marginRight="-8dp"
-                                             android:id="@+id/fl_item_container">
+<com.example.master.structure.RoundRectCornerConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                              xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                              xmlns:tools="http://schemas.android.com/tools"
+                                                              android:layout_width="186dp"
+                                                              android:layout_height="wrap_content"
+                                                              android:background="@drawable/selector_rounded"
+                                                              android:layout_marginTop="0dp"
+                                                              android:layout_marginBottom="8dp"
+                                                              android:layout_marginRight="-8dp"
+                                                              android:id="@+id/fl_item_container">
 
     <ImageView
             android:layout_width="0dp"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
-            android:layout_height="wrap_content" app:srcCompat="@drawable/surf_edu"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/surf_edu"
             android:id="@+id/imageViewMeme"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="60dp"/>
     <TextView
             android:text="Title"
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:id="@+id/textViewTitleMeme"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="40dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="13dp"
-            android:layout_marginRight="13dp" app:layout_constraintHorizontal_bias="1.0" android:textSize="14sp"
-            android:textColor="#FFFFFF"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
+            app:layout_constraintHorizontal_bias="1.0" android:textSize="14sp"
+            android:textColor="@color/colorWhite"/>
     <ImageButton
             android:layout_width="wrap_content"
             android:onClick="onFavoriteButtonClick"
-            android:layout_height="wrap_content" app:srcCompat="@drawable/baseline_favorite_border_24"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/baseline_favorite_border_24"
             android:id="@+id/imageButtonFavorite"
-            android:background="@drawable/button_file_cell" app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/button_file_cell"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp" android:layout_marginBottom="11dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="11dp"
             app:layout_constraintBottom_toBottomOf="parent"/>
     <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@drawable/baseline_share_24"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/baseline_share_24"
             android:id="@+id/imageButtonShare"
             android:background="@drawable/button_file_cell"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="54dp"
-            android:layout_marginStart="54dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="54dp"
+            android:layout_marginStart="54dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="11dp"/>
 
-</com.example.master.RoundRectCornerConstraintLayout>
+</com.example.master.structure.RoundRectCornerConstraintLayout>

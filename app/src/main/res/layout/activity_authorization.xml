@@ -5,15 +5,20 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AuthorizationActivity" android:background="@color/colorBody">
+        tools:context=".AuthorizationActivity"
+        android:background="@color/colorBody">
 
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginTop="100dp">
 
         <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
@@ -24,7 +29,8 @@
                 android:layout_height="wrap_content"
                 app:labelText="Логин"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="0dp" app:layout_constraintStart_toStartOf="parent">
+                android:layout_marginTop="0dp"
+                app:layout_constraintStart_toStartOf="parent">
 
             <studio.carbonylgroup.textfieldboxes.ExtendedEditText
                     android:id="@+id/login_extended_edit_text"
@@ -39,10 +45,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:labelText="Пароль"
-                app:endIcon="@drawable/not_see"
+                app:endIcon="@drawable/invisible"
                 app:maxCharacters="10"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent">
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent">
 
             <studio.carbonylgroup.textfieldboxes.ExtendedEditText
                     android:inputType="textPassword"
@@ -56,13 +63,18 @@
     </LinearLayout>
 
     <Button
-            android:text="Войти"
+            android:text="@string/stringEnter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/input_button" android:background="@drawable/button_file"
+            android:id="@+id/input_button"
+            android:background="@drawable/button_file"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="16dp" android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp" android:layout_marginRight="16dp" android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
     />
 
@@ -72,12 +84,16 @@
             android:layout_height="wrap_content"
             android:id="@+id/progressBar"
             android:visibility="invisible"
-            android:translationZ="2dp"
             android:theme="@style/CircularProgress"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="181dp"
-            android:layout_marginStart="181dp" android:layout_marginEnd="182dp" android:layout_marginRight="182dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="181dp"
+            android:layout_marginStart="181dp"
+            android:layout_marginEnd="182dp"
+            android:layout_marginRight="182dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintHorizontal_bias="0.0"
     />
     <android.support.constraint.ConstraintLayout
             android:id="@+id/сonstraintLayout"
@@ -85,7 +101,8 @@
             android:layout_height="80dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.6">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6">
 
     </android.support.constraint.ConstraintLayout>
 

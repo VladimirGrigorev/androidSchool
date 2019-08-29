@@ -10,11 +10,17 @@
 >
     <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@drawable/surf_edu"
-            android:id="@+id/surf_edu_imageView" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="252dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="134dp" android:layout_marginStart="134dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/surf_edu"
+            android:id="@+id/surf_edu_imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="252dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="134dp"
+            android:layout_marginStart="134dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="292dp"
-            android:layout_marginRight="134dp" android:layout_marginEnd="134dp"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="292dp"
+            android:layout_marginRight="134dp"
+            android:layout_marginEnd="134dp"/>
 </android.support.constraint.ConstraintLayout>

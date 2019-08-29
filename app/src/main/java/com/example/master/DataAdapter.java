@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.example.master.structure.MemeInfo;
+import com.example.master.structure.RoundRectCornerConstraintLayout;
 
 import java.util.List;
 
@@ -43,6 +45,18 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
         holder.nameView.setText(meme.getTitle());
         holder.buttonFavorite.setOnClickListener(this);
         holder.layout.setOnClickListener(this);
+        if (meme.getIsFavorite()) {
+            Glide
+                    .with(context)
+                    .load(R.drawable.baseline_favorite_24)
+                    .into(holder.favorite);
+        }
+        else {
+            Glide
+                    .with(context)
+                    .load(R.drawable.baseline_favorite_border_24)
+                    .into(holder.favorite);
+        }
     }
 
     @Override
@@ -55,8 +69,10 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
         final TextView nameView;
         final ImageButton buttonFavorite;
         final RoundRectCornerConstraintLayout layout;
+        final ImageView favorite;
         ViewHolder(View view){
             super(view);
+            favorite = view.findViewById((R.id.imageButtonFavorite));
             imageView = view.findViewById(R.id.imageViewMeme);
             nameView = view.findViewById(R.id.textViewTitleMeme);
             buttonFavorite = view.findViewById(R.id.imageButtonFavorite);
@@ -82,8 +98,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
             case  R.id.fl_item_container:
                 if (!pressButton) {
                 View rootView = view.getRootView();
-                RecyclerView rc = rootView.findViewById(R.id.my_recycler_view);
-                int positionMeme = rc.getChildAdapterPosition(view);
+                RecyclerView recyclerView = rootView.findViewById(R.id.my_recycler_view);
+                int positionMeme = recyclerView.getChildAdapterPosition(view);
 
                 Intent intent = new Intent(context, DetailedScreenMemeActivity.class);
                 intent.putExtra("id", memes.get(positionMeme).getId());
@@ -92,6 +108,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
                 intent.putExtra("isFavorite", memes.get(positionMeme).getIsFavorite());
                 intent.putExtra("createdDate", memes.get(positionMeme).getCreatedDate());
                 intent.putExtra("photoUtl", memes.get(positionMeme).getPhotoUtl());
+
                 context.startActivity(intent);
                 }
         }

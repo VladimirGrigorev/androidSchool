@@ -1,4 +1,4 @@
-package com.example.master.Fragments;
+package com.example.master.fragment;
 
 import android.arch.persistence.room.Room;
 import android.content.Intent;
@@ -15,6 +15,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.example.master.*;
+import com.example.master.MainScreenActivity;
+import com.example.master.database.AppDatabase;
+import com.example.master.database.Meme;
+import com.example.master.database.MemeDao;
 
 import java.util.Date;
 

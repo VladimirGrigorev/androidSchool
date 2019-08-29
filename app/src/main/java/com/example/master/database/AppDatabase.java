@@ -1,4 +1,4 @@
-package com.example.master;
+package com.example.master.database;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
