@@ -1,6 +1,5 @@
 package com.example.master
 
-import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ProgressBar
@@ -16,8 +15,6 @@ import android.view.View
 
 
 class AuthorizationActivity : AppCompatActivity() {
-
-    var sharedPref: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +33,7 @@ class AuthorizationActivity : AppCompatActivity() {
             body.login = login_extended_edit_text.text.toString()
             body.password = password_extended_edit_text.text.toString()
 
-            sharedPref = getSharedPreferences(SharedPreferencesParams.PREF_NAME, MODE_PRIVATE)
+            StaticVariable.sharedPref = getSharedPreferences(SharedPreferencesParams.PREF_NAME, MODE_PRIVATE)
 
             sendAuthorizationRequest(body, it)
         }
@@ -73,7 +70,7 @@ class AuthorizationActivity : AppCompatActivity() {
     }
 
     private fun saveUser(post: PostAuth) {
-        val prefEditor = sharedPref!!.edit()
+        val prefEditor = StaticVariable.sharedPref.edit()
         prefEditor.putString(SharedPreferencesParams.token, post.accessToken)
         prefEditor.putInt(SharedPreferencesParams.id, post.userInfo.id)
         prefEditor.putString(SharedPreferencesParams.username, post.userInfo.username)
