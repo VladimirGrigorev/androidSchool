@@ -46,7 +46,7 @@ class MainScreenActivity : AppCompatActivity() {
         progressBarMainScreen.setVisibility(ProgressBar.VISIBLE)
 
         NetworkService.getInstance()
-            .jsonApi
+            .jsonApiMemes
             .postDataMemes
             .enqueue(object : Callback<ArrayList<MemeInfo>> {
                 override fun onResponse(call: Call<ArrayList<MemeInfo>>, response: Response<ArrayList<MemeInfo>>) {
