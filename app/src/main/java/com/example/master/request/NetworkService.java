@@ -25,7 +25,10 @@ public class NetworkService {
     public ApiAuth getJSONApiAuth() {
         return mRetrofit.create(ApiAuth.class);
     }
-    public ApiMemes getJSONApi() {
+    public ApiMemes getJSONApiMemes() {
         return mRetrofit.create(ApiMemes.class);
+    }
+    public ApiLogout getJSONApiLogout() {
+        return mRetrofit.create(ApiLogout.class);
     }
 }
