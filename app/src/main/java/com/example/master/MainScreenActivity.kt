@@ -12,15 +12,14 @@ import android.support.v4.app.Fragment
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ProgressBar
+import android.widget.Toolbar
 import com.example.master.Fragments.ErrorFragment
 import com.example.master.Fragments.TapeFragment
-import com.example.master.MemesList.listMemes
+import com.example.master.StaticVariable.listMemes
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
-
-
 
 class MainScreenActivity : AppCompatActivity() {
 
@@ -76,7 +75,7 @@ class MainScreenActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
-        inflater.inflate(R.menu.main_screen_menu, menu)
+        inflater.inflate(R.menu.user_screen_menu, menu)
         return true
     }
 
